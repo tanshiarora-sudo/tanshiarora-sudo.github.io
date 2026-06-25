@@ -131,8 +131,10 @@
   .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:44px;margin-top:34px}
   .ind-grid .ic{display:flex;align-items:baseline;gap:16px;padding:17px 0;border-top:1px solid var(--hair);transition:color .2s ease}
   .ind-grid .ic .n{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.05em}
-  .ind-grid .ic .name{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(18px,2vw,23px);letter-spacing:-0.01em;color:var(--ink)}
+  .ind-grid .ic .name{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(18px,2vw,23px);letter-spacing:-0.01em;color:var(--ink);transition:color .2s ease}
+  .ind-grid .ic .brands{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--accent);margin-left:14px;white-space:nowrap;opacity:0;transform:translateX(-5px);transition:opacity .25s ease,transform .25s ease}
   .ind-grid .ic:hover .name{color:var(--accent)}
+  .ind-grid .ic:hover .brands{opacity:.9;transform:none}
   @media(max-width:760px){.ind-grid{grid-template-columns:1fr;column-gap:0}}
 
   /* contact */
@@ -374,17 +376,17 @@
     <h2 class="sec" style="margin-top:18px">Eleven industries, one operator.</h2>
     <p class="ind-sub">Brand and manufacturing side, across delivery, commercials and operations.</p>
     <div class="ind-grid">
-      <div class="ic"><span class="n">01</span><span class="name">AI &amp; SaaS</span></div>
-      <div class="ic"><span class="n">02</span><span class="name">Cosmetics &amp; beauty</span></div>
-      <div class="ic"><span class="n">03</span><span class="name">Automotive</span></div>
-      <div class="ic"><span class="n">04</span><span class="name">Fintech</span></div>
-      <div class="ic"><span class="n">05</span><span class="name">Edtech</span></div>
-      <div class="ic"><span class="n">06</span><span class="name">FMCG distribution</span></div>
-      <div class="ic"><span class="n">07</span><span class="name">D2C &amp; e-commerce</span></div>
-      <div class="ic"><span class="n">08</span><span class="name">Marketplaces</span></div>
-      <div class="ic"><span class="n">09</span><span class="name">Aviation</span></div>
-      <div class="ic"><span class="n">10</span><span class="name">F&amp;B</span></div>
-      <div class="ic"><span class="n">11</span><span class="name">Manufacturing</span></div>
+      <div class="ic"><span class="n">01</span><span class="name">AI &amp; SaaS</span><span class="brands">Triam · Honda</span></div>
+      <div class="ic"><span class="n">02</span><span class="name">Cosmetics &amp; beauty</span><span class="brands">Naturis · Luar</span></div>
+      <div class="ic"><span class="n">03</span><span class="name">Automotive</span><span class="brands">Honda · MG Motors</span></div>
+      <div class="ic"><span class="n">04</span><span class="name">Fintech</span><span class="brands">Triam · Bankcard</span></div>
+      <div class="ic"><span class="n">05</span><span class="name">Edtech</span><span class="brands">Utkarsh Classes</span></div>
+      <div class="ic"><span class="n">06</span><span class="name">FMCG distribution</span><span class="brands">Al Seer · Zee Stores</span></div>
+      <div class="ic"><span class="n">07</span><span class="name">D2C &amp; e-commerce</span><span class="brands">Luar · Ferns N Petals</span></div>
+      <div class="ic"><span class="n">08</span><span class="name">Marketplaces</span><span class="brands">Jebni</span></div>
+      <div class="ic"><span class="n">09</span><span class="name">Aviation</span><span class="brands">Chimes Aviation</span></div>
+      <div class="ic"><span class="n">10</span><span class="name">F&amp;B</span><span class="brands">Blue Tokai</span></div>
+      <div class="ic"><span class="n">11</span><span class="name">Manufacturing</span><span class="brands">Vardhaman · MKU</span></div>
     </div>
   </section>
 
