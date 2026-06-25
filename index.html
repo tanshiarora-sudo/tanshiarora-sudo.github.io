@@ -53,28 +53,23 @@
   .btn-out{border:1px solid var(--btn-out);color:oklch(0.35 0.02 60)}
   .btn-out:hover{border-color:var(--accent);color:var(--accent)}
 
-  /* hero growth-trajectory animation */
+  /* hero floating capability tags */
   .hero-art{display:flex;align-items:center;justify-content:center}
-  .chart{width:100%;max-width:480px;height:auto;overflow:visible}
-  .chart .grid line{stroke:var(--hair);stroke-width:1}
-  .chart .axis{stroke:oklch(0.82 0.02 70);stroke-width:1.2}
-  .chart .area{fill:url(#cg);opacity:0;animation:areaIn 1.4s ease forwards 2.3s}
-  .chart .line{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.4s cubic-bezier(.4,.1,.2,1) forwards .35s}
-  .chart .node{fill:var(--paper);stroke:var(--accent);stroke-width:2.4;opacity:0;animation:nodeIn .45s ease forwards}
-  .chart .node.n1{animation-delay:.55s}
-  .chart .node.n2{animation-delay:1.45s}
-  .chart .tip{fill:var(--accent);opacity:0;animation:nodeIn .5s ease forwards 2.5s}
-  .chart .tip-ring{fill:none;stroke:var(--accent);stroke-width:2;animation:ring 2.6s ease-out infinite 2.9s}
-  .chart .lbl{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;fill:var(--muted)}
-  .chart .lbl.hi{fill:var(--accent);font-size:17px}
-  .chart .cap{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;fill:var(--muted);letter-spacing:.12em}
-  .chart-g{animation:floaty 9s ease-in-out infinite}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  @keyframes areaIn{to{opacity:1}}
-  @keyframes nodeIn{to{opacity:1}}
-  @keyframes ring{0%{r:6;opacity:.55}100%{r:28;opacity:0}}
-  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-  @media(prefers-reduced-motion:reduce){.chart *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important}}
+  .cap-cloud{position:relative;width:100%;max-width:480px;aspect-ratio:1/1}
+  .cap-cloud .pill{position:absolute;white-space:nowrap;padding:10px 18px;border-radius:999px;border:1px solid var(--btn-out);background:var(--paper);font-size:14px;font-weight:500;color:oklch(0.38 0.02 60);box-shadow:0 4px 16px oklch(0.575 0.13 38 / 0.07);will-change:transform}
+  .cap-cloud .pill.accent{border-color:var(--accent);color:var(--accent);background:oklch(0.575 0.13 38 / 0.06)}
+  .cap-cloud .p1{top:5%;left:5%;animation:drift-a 8s ease-in-out infinite}
+  .cap-cloud .p2{top:18%;left:52%;animation:drift-b 9.5s ease-in-out infinite}
+  .cap-cloud .p3{top:35%;left:9%;animation:drift-c 8.8s ease-in-out infinite}
+  .cap-cloud .p4{top:33%;left:60%;animation:drift-a 10.5s ease-in-out infinite}
+  .cap-cloud .p5{top:51%;left:30%;animation:drift-b 9s ease-in-out infinite}
+  .cap-cloud .p6{top:67%;left:7%;animation:drift-c 11s ease-in-out infinite}
+  .cap-cloud .p7{top:69%;left:52%;animation:drift-a 9.8s ease-in-out infinite}
+  .cap-cloud .p8{top:85%;left:28%;animation:drift-b 8.4s ease-in-out infinite}
+  @keyframes drift-a{0%,100%{transform:translate(0,0)}50%{transform:translate(9px,-14px)}}
+  @keyframes drift-b{0%,100%{transform:translate(0,0)}50%{transform:translate(-13px,11px)}}
+  @keyframes drift-c{0%,100%{transform:translate(0,0)}50%{transform:translate(11px,13px)}}
+  @media(prefers-reduced-motion:reduce){.cap-cloud .pill{animation:none}}
 
   /* stats */
   .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hair);border-left:1px solid var(--hair)}
@@ -144,7 +139,7 @@
   @media(max-width:860px){
     .hero{grid-template-columns:1fr;gap:26px}
     .hero-art{order:-1;margin:0 auto}
-    .chart{max-width:340px}
+    .cap-cloud{max-width:320px}
   }
   @media(max-width:760px){
     .wrap,.nav-in,.contact .inner{padding-left:24px;padding-right:24px}
@@ -186,32 +181,16 @@
       </div>
     </div>
     <div class="hero-art">
-      <svg class="chart" viewBox="0 0 460 380" role="img" aria-label="Flagship account growth from ₹3 lakh to ₹5 crore">
-        <defs>
-          <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.2"/>
-            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <g class="chart-g">
-          <g class="grid">
-            <line x1="50" y1="120" x2="410" y2="120"/>
-            <line x1="50" y1="185" x2="410" y2="185"/>
-            <line x1="50" y1="250" x2="410" y2="250"/>
-          </g>
-          <line class="axis" x1="50" y1="58" x2="50" y2="320"/>
-          <line class="axis" x1="50" y1="320" x2="410" y2="320"/>
-          <text class="cap" x="50" y="40">FLAGSHIP GROWTH</text>
-          <path class="area" d="M50 300 C 140 296, 165 250, 225 212 S 350 140, 410 80 L410 320 L50 320 Z"/>
-          <path class="line" d="M50 300 C 140 296, 165 250, 225 212 S 350 140, 410 80"/>
-          <circle class="node n1" cx="50" cy="300" r="5"/>
-          <circle class="node n2" cx="225" cy="212" r="5"/>
-          <circle class="tip" cx="410" cy="80" r="6"/>
-          <circle class="tip-ring" cx="410" cy="80" r="6"/>
-          <text class="lbl" x="50" y="344" text-anchor="middle">₹3L</text>
-          <text class="lbl hi" x="412" y="66" text-anchor="end">₹5Cr</text>
-        </g>
-      </svg>
+      <div class="cap-cloud" aria-hidden="true">
+        <span class="pill p1">Delivery</span>
+        <span class="pill accent p2">Revenue</span>
+        <span class="pill p3">Vendor ops</span>
+        <span class="pill accent p4">Product</span>
+        <span class="pill p5">E-commerce</span>
+        <span class="pill p6">Operations</span>
+        <span class="pill accent p7">Research</span>
+        <span class="pill p8">CXO comms</span>
+      </div>
     </div>
   </section>
 
