@@ -62,16 +62,15 @@
   .btn-out{border:1px solid var(--btn-out);color:oklch(0.35 0.02 60)}
   .btn-out:hover{border-color:var(--accent);color:var(--accent)}
 
-  /* hero capability network — wired nodes */
+  /* hero capability network — dotted elbow connectors */
   .hero-art{display:flex;align-items:center;justify-content:center}
-  .cap-cloud{position:relative;width:100%;max-width:480px;aspect-ratio:1/1;animation:netfloat 11s ease-in-out infinite}
-  .cap-net{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-  .cap-net .wire{stroke:var(--accent);stroke-opacity:.45;stroke-width:0.8;fill:none;stroke-dasharray:3 3;animation:flow 2.6s linear infinite}
-  .cap-net .node{fill:var(--accent);opacity:.8}
-  .cap-cloud .pill{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;padding:9px 16px;border-radius:999px;border:1px solid var(--btn-out);background:var(--paper);font-size:13.5px;font-weight:500;color:oklch(0.38 0.02 60);box-shadow:0 4px 16px oklch(0.575 0.13 38 / 0.08);z-index:1}
+  .cap-cloud{position:relative;width:100%;max-width:430px;margin:0 auto;animation:netfloat 12s ease-in-out infinite}
+  .cap-net{display:block;width:100%;height:auto;overflow:visible}
+  .cap-net .wire{fill:none;stroke:oklch(0.64 0.035 50);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:0.01 12;animation:flow 6s linear infinite}
+  .cap-cloud .pill{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;padding:10px 18px;border-radius:999px;border:1px solid var(--btn-out);background:var(--paper);font-size:13.5px;font-weight:500;color:oklch(0.38 0.02 60);box-shadow:0 4px 16px oklch(0.575 0.13 38 / 0.08);z-index:1}
   .cap-cloud .pill.accent{border-color:var(--accent);color:var(--accent);background:oklch(0.575 0.13 38 / 0.06)}
-  @keyframes flow{to{stroke-dashoffset:-12}}
-  @keyframes netfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes flow{to{stroke-dashoffset:-24}}
+  @keyframes netfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
   @media(prefers-reduced-motion:reduce){.cap-net .wire{animation:none}.cap-cloud{animation:none}}
 
   /* stats */
@@ -187,39 +186,19 @@
     </div>
     <div class="hero-art">
       <div class="cap-cloud" aria-hidden="true">
-        <svg class="cap-net" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <g>
-            <line class="wire" x1="19" y1="17" x2="21" y2="45"/>
-            <line class="wire" x1="19" y1="17" x2="71" y2="21"/>
-            <line class="wire" x1="71" y1="21" x2="79" y2="47"/>
-            <line class="wire" x1="21" y1="45" x2="47" y2="62"/>
-            <line class="wire" x1="79" y1="47" x2="47" y2="62"/>
-            <line class="wire" x1="47" y1="62" x2="72" y2="74"/>
-            <line class="wire" x1="21" y1="45" x2="18" y2="78"/>
-            <line class="wire" x1="18" y1="78" x2="46" y2="88"/>
-            <line class="wire" x1="47" y1="62" x2="46" y2="88"/>
-            <line class="wire" x1="79" y1="47" x2="72" y2="74"/>
-            <line class="wire" x1="71" y1="21" x2="47" y2="62"/>
-          </g>
-          <g>
-            <circle class="node" cx="19" cy="17" r="0.9"/>
-            <circle class="node" cx="71" cy="21" r="0.9"/>
-            <circle class="node" cx="21" cy="45" r="0.9"/>
-            <circle class="node" cx="79" cy="47" r="0.9"/>
-            <circle class="node" cx="47" cy="62" r="0.9"/>
-            <circle class="node" cx="18" cy="78" r="0.9"/>
-            <circle class="node" cx="72" cy="74" r="0.9"/>
-            <circle class="node" cx="46" cy="88" r="0.9"/>
-          </g>
+        <svg class="cap-net" viewBox="0 0 460 580">
+          <path class="wire" d="M110 50 H395 Q410 50 410 65 V135 Q410 150 395 150 H300"/>
+          <path class="wire" d="M300 150 H65 Q50 150 50 165 V235 Q50 250 65 250 H95"/>
+          <path class="wire" d="M95 250 H395 Q410 250 410 265 V345 Q410 360 395 360 H310"/>
+          <path class="wire" d="M310 360 H65 Q50 360 50 375 V445 Q50 460 65 460 H105"/>
+          <path class="wire" d="M105 460 H395 Q410 460 410 475 V525 Q410 540 395 540 H300"/>
         </svg>
-        <span class="pill" style="left:19%;top:17%">Delivery</span>
-        <span class="pill accent" style="left:71%;top:21%">Revenue</span>
-        <span class="pill" style="left:21%;top:45%">Vendor ops</span>
-        <span class="pill accent" style="left:79%;top:47%">Product</span>
-        <span class="pill" style="left:47%;top:62%">E-commerce</span>
-        <span class="pill" style="left:18%;top:78%">Operations</span>
-        <span class="pill accent" style="left:72%;top:74%">Research</span>
-        <span class="pill" style="left:46%;top:88%">CXO comms</span>
+        <span class="pill" style="left:24%;top:9%">Delivery</span>
+        <span class="pill accent" style="left:65%;top:26%">Revenue</span>
+        <span class="pill" style="left:21%;top:43%">Vendor ops</span>
+        <span class="pill accent" style="left:67%;top:62%">Product</span>
+        <span class="pill" style="left:23%;top:79%">Operations</span>
+        <span class="pill accent" style="left:65%;top:93%">Research</span>
       </div>
     </div>
   </section>
