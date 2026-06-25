@@ -66,10 +66,11 @@
   .hero-art{display:flex;align-items:center;justify-content:center}
   .cap-cloud{position:relative;width:100%;max-width:470px;aspect-ratio:1/1;margin:0 auto;animation:netfloat 12s ease-in-out infinite}
   .cap-net{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0}
-  .cap-net .wire{fill:none;stroke:var(--accent);stroke-opacity:.6;stroke-width:0.7;stroke-linecap:round;stroke-dasharray:0.01 3;animation:flow 5s linear infinite}
-  .cap-cloud .pill{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;padding:11px 19px;border-radius:999px;background:#2a2521;color:#f3ece2;font-size:13.5px;font-weight:500;box-shadow:0 8px 22px rgba(40,28,18,.26);z-index:2}
-  .cap-cloud .pill.accent{color:#eda483}
-  @keyframes flow{to{stroke-dashoffset:-6}}
+  .cap-net .wire{fill:none;stroke:var(--accent);stroke-opacity:.4;stroke-width:0.55;stroke-linecap:round;stroke-dasharray:0.01 3.2;animation:flow 6.5s linear infinite}
+  .cap-net .pulse{filter:drop-shadow(0 0 2.5px var(--accent))}
+  .cap-cloud .pill{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;padding:11px 19px;border-radius:999px;background:var(--paper);color:oklch(0.30 0.02 60);border:1px solid var(--hair);font-size:13.5px;font-weight:500;box-shadow:0 6px 18px oklch(0.575 0.13 38 / 0.10);z-index:2}
+  .cap-cloud .pill.accent{color:var(--accent);border-color:var(--accent)}
+  @keyframes flow{to{stroke-dashoffset:-6.4}}
   @keyframes netfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
   @media(prefers-reduced-motion:reduce){.cap-net .wire{animation:none}.cap-cloud{animation:none}}
 
@@ -192,18 +193,17 @@
     <div class="hero-art">
       <div class="cap-cloud" aria-hidden="true">
         <svg class="cap-net" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <line class="wire" x1="22" y1="15" x2="72" y2="20"/>
-          <line class="wire" x1="22" y1="15" x2="15" y2="46"/>
-          <line class="wire" x1="72" y1="20" x2="76" y2="50"/>
-          <line class="wire" x1="15" y1="46" x2="76" y2="50"/>
-          <line class="wire" x1="15" y1="46" x2="32" y2="82"/>
-          <line class="wire" x1="76" y1="50" x2="70" y2="80"/>
-          <line class="wire" x1="32" y1="82" x2="70" y2="80"/>
-          <line class="wire" x1="72" y1="20" x2="76" y2="50"/>
+          <path class="wire" fill="none" d="M22 15 L72 20 L76 50 L70 80 L32 82 L15 46 Z"/>
+          <line class="wire" x1="22" y1="15" x2="76" y2="50"/>
+          <line class="wire" x1="72" y1="20" x2="32" y2="82"/>
+          <circle class="pulse-h" r="3.4" opacity="0.16" fill="var(--accent)"><animateMotion dur="9s" repeatCount="indefinite" path="M22 15 L72 20 L76 50 L70 80 L32 82 L15 46 Z"/></circle>
+          <circle class="pulse" r="1.7" fill="var(--accent)"><animateMotion dur="9s" repeatCount="indefinite" path="M22 15 L72 20 L76 50 L70 80 L32 82 L15 46 Z"/></circle>
+          <circle class="pulse-h" r="3.4" opacity="0.16" fill="var(--accent)"><animateMotion dur="9s" begin="-4.5s" repeatCount="indefinite" path="M22 15 L72 20 L76 50 L70 80 L32 82 L15 46 Z"/></circle>
+          <circle class="pulse" r="1.7" fill="var(--accent)"><animateMotion dur="9s" begin="-4.5s" repeatCount="indefinite" path="M22 15 L72 20 L76 50 L70 80 L32 82 L15 46 Z"/></circle>
         </svg>
         <span class="pill" style="left:22%;top:15%">Delivery</span>
         <span class="pill accent" style="left:72%;top:20%">Revenue</span>
-        <span class="pill" style="left:15%;top:46%">Vendor ops</span>
+        <span class="pill" style="left:15%;top:46%">Vendors</span>
         <span class="pill accent" style="left:76%;top:50%">Product</span>
         <span class="pill" style="left:32%;top:82%">Operations</span>
         <span class="pill accent" style="left:70%;top:80%">Research</span>
